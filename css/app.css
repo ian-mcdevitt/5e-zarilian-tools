@@ -1,0 +1,486 @@
+/* app css stylesheet */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+body {
+	overflow-y: scroll;
+}
+body * {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12px;
+}
+.error {
+    color: red;
+    text-align: center;
+}
+div.menubox {
+    height: 18px;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+.menu {
+    list-style: none;
+    float: left;
+}
+.menu:before {
+  content: "[";
+}
+.menu:after {
+    content: "]";
+}
+.menu > li {
+    display: inline;
+}
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+.menu.right {
+    float: right;
+}
+#segments {
+    margin-right: 30px;
+    width: 25%;
+    float:left;
+    clear:left;
+}
+#segments div.segment-row:nth-child(even) div {
+    background-color: #F8CCCC;
+}
+#segments div.segment-row:nth-child(odd) div {
+    background-color: #FBE7E7;
+}
+#segments div.segment-row:nth-child(odd) div:first-child, #segments div.segment-row:first-child div {
+    background-color: #ED1C24;
+}
+#segments div.segment-row {
+    clear:both;
+    margin: 2px 0px;
+    height: 40px;
+    cursor: pointer;
+    cursor: hand;
+}
+#segments div.segment-row div {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0px;
+    float:left;
+}
+#segments div.segment-row div span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0;
+}
+#segments div.segment-row div span span.segment-span {
+    font-size: 10px;
+    line-height: 12px;
+}
+#segments .segment-row.selected {
+    border: 2px solid black;
+    margin: -2px -2px;
+}
+div.segment-row div:nth-child(1) {
+    width:15%;
+}
+div.segment-row div:nth-child(2) {
+    width:45%;
+}
+div.segment-row div:nth-child(3) {
+    width:20%;
+}
+div.segment-row div:nth-child(4) {
+    width:20%;
+}
+#slicers .slicer {
+    float: left;
+    padding: 2px;
+    margin: 0px 5px;
+    min-width: 120px;
+    margin-bottom: 15px;
+}
+#slicers div.tactic-slicer {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+#slicers .slicer-title, #slicers .slicer-select {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+#slicers div select{
+    width: 100%;
+}
+#slicers .slicer-title {
+    height: 30px;
+}
+#tenure div.tenure {
+    width: 200px;
+    float: left;
+    min-height: 142px;
+}
+.tactic_options div {
+    height: 30px;
+    line-height: 30px;
+}
+.tactic_options div button {
+    margin: 4px;
+}
+#tenure div .titlebar .title {
+    width: 160px;
+    padding: 0px 0px 0px 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    vertical-align: middle;
+    float: left;
+    background: #ED1C24; /*url(../img/arrow-end.bmp) no-repeat right;*/
+}
+#tenure div.tenure .titlebar .title input {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    margin: 8px;
+    vertical-align: top;
+    position: relative:
+    top: -1px;
+}
+#tenure div.tenure_impact {
+    clear: both;
+}
+.tenure-title {
+    color: #FFF;
+    background: #ED1C24; /*url(../img/arrow-end.bmp) no-repeat right;*/
+}
+.negative {
+    color: #F00;
+}
+.negative span.number:before {
+    content: "(";
+}
+.negative span.number:after {
+    content: ")";
+}
+div.negative:before {
+    content: "-";
+}
+ul {
+    padding-left: 10px;
+    margin-top: 0px;
+}
+ul li {
+    padding-top: 10px;
+    list-style-type: none;
+}
+ul li.factored {
+    list-style-type: disc;
+    margin-left: 15px;
+}
+ul li.factored a {
+    margin-left: -5px;
+}
+.slicer-radio li {
+    padding-top: 3px;
+}
+.slicer-radio li li {
+    margin-left: 15px;
+}
+.arrow-right {
+    width: 0; 
+    height: 0;
+    float: left;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+.arrow-right.white{
+    border-left: 15px solid #FFFFFF;
+    background: #ED1C24;
+}
+.arrow-right.red {
+    border-left: 15px solid #ED1C24;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+}
+#modal {
+    z-index: 99999;
+    opacity:0;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    text-align: center;
+}
+#modal > img {
+    position: relative;
+    margin: 20% auto;
+    width: 128px;
+    height: 128px;
+}
+#modal.modalDialog {
+    opacity:1;
+    pointer-events: auto;
+}
+
+button.on {
+    background-color: #FF0000;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+#loginform > div {
+    width: 300px;
+    padding: 15px 20px;
+    background: #f3f6fa;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin: 10% auto;
+}
+
+#loginform h1 {
+    font-size: 2em;
+    color: #7c8291;
+}
+
+#loginform label {
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #7c8291;
+    margin-bottom: 3px;
+}
+ 
+#loginform input { 
+    display: block;
+    padding: 6px 5px;
+    margin-bottom: 15px;
+    font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif;
+    color: #7988a3;
+    font-size: 1.4em;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+    background-color: #fff;
+    background-image: linear-gradient(top, #edf3f9, #fff);
+    border: 1px solid;
+    border-color: #abbce8 #c3cae0 #b9c8ef;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.4);
+    width: 288px;
+    transition: all 0.25s linear;
+}
+
+#loginform input:focus {
+  outline: none;
+  color: #525864;
+  border-color: #84c0ee;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), 0 0 7px #96c7ec;
+}
+
+/** custom login button **/
+.flatbtn-blu { 
+  box-sizing: border-box;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  color: #edf4f9;
+  text-decoration: none;
+  background-color: #4f94cf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 12px 26px 12px 26px;
+  line-height: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.flatbtn-blu:hover {
+  color: #fff;
+  background-color: #519dde;
+}
+.flatbtn-blu:active {
+  box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+#optimize {
+    text-align: center;
+}
+.optimize {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #F8CCCC;
+    border-radius: 5px;
+    width: 34%;
+    min-width: 300px;
+}
+.optimize {
+    margin: 0px 5%;
+}
+.optimize .title {
+    height: 50px;
+    line-height: 50px;
+    background-color: #ED1C24;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.optimize .input_volume {
+    height: 41px;
+}
+.optimize .buttons {
+    padding: 10px;
+}
+.optimize button {
+    margin: 10px;
+    width: 200px;
+    clear: both;
+}
+.summary-row {
+    width: 55%;
+    min-width: 280px;
+    height:30px;
+    line-height: 30px;
+    display: inline-block;
+    border-bottom: 1px solid black;
+}
+.summary-row:last-child {
+    border-bottom: 0px;
+}
+#jcn-table {
+    width: 70%;
+    min-width: 500px;
+    float: left;
+    /* Vertical scroll-bar. Doesn't look pretty, needs work.
+    height: 600px;
+    overflow-y: scroll;
+    */
+}
+#jcn-table .title {
+    background-color: #3333FF;
+    color: #FFFFFF;
+    padding: 5px;
+}
+#jcn-table .jcn-row {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    clear: both;
+}
+#jcn-table .jcn-row.header .jcn-cell {
+    background-color: #CCCCCC;
+}
+#jcn-table .jcn-row .jcn-cell {
+    float: left;
+    padding: 5px;
+    height: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    background: rgba(192, 64, 64, 0.63); /*partially transparent image*/
+    overflow: hidden;
+}
+#jcn-table .jcn-row .jcn-cell:nth-child(1) {
+    text-align: left;
+    width: 45%;
+}
+#jcn-table .jcn-row .jcn-cell:nth-child(2) {
+    width: 15%;
+}
+#jcn-table .jcn-row .jcn-cell:nth-child(3) {
+    width: 20%;
+}
+#jcn-table .jcn-row .jcn-cell:nth-child(4) {
+    width: 20%;
+}
+#stacked_columns {
+    float: right;
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+#jcn-table .jcn-row.highlight div {
+    background-color: yellow;
+}
+#campaign_summary input {
+    text-align: center;
+}
+#jcn-table .jcn-row:before {
+    position: absolute;
+    content: '';
+    text-align: center;
+    opacity: 0.63;
+    color: #990000;
+    width: 65%;
+    min-width: 500px;
+    height: 30px;
+    padding: 15px 0px;
+    margin-top: -26px;
+    pointer-events: none;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 26px;
+    opacity: 0.35;
+    display: block;
+}
+#jcn-table .jcn-row:nth-child(16n):before {
+    content: 'Campaign/touch statistics are for CRM across all FiOS subs in 2-year dataset (not limited to selected segments).';
+}
+#jcn-table .jcn-row:nth-child(16n+8):before {
+    content: 'Bill Media Acquisition campaigns have been reclassified as Upsell based on % of subs that are 3X or Data-Video.';
+}
+#jcn-table .jcn-row.highlight:before, #jcn-table .jcn-row.highlight + .jcn-row:before {
+    content: '';
+}
+.bold {
+    font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+.spell {
+    width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    div.spell{
+        page-break-inside: avoid;
+    }
+}
+.spell .select_hide {
+    display:inline-block;
+	vertical-align:top;
+	overflow:hidden;
+	border:solid grey 1px;
+}
+.spell select {
+    width: 150px;
+	margin: 0px 10px;
+	overflow-y: hidden;
+	padding: 5px;
+	margin: 0px 10px;
+}
+h1 {
+	font-size: 1.5em;
+}
+pre {
+    font-family: monospace !important;
+}
