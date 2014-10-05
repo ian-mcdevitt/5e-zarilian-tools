@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('av_adi.controllers.spells', []).controller('spellsCtrl', ['$scope', '$sce', '$routeParams', 'spells', function($scope, $sce, $routeParams, spells) {
+angular.module('dnd5e.controllers.spells', []).controller('spellsCtrl', ['$scope', '$sce', '$routeParams', 'spells', function($scope, $sce, $routeParams, spells) {
 	$scope.spells = spells;
 
 	for(var i = 0; i < $scope.spells.length; i++) {

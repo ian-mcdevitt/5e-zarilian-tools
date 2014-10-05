@@ -2,7 +2,7 @@
 
 /* filters */
 
-var module = angular.module('av_adi.filters', []);
+var module = angular.module('dnd5e.filters', []);
 
 module.filter('titlecase', function() {
     return function(s) {

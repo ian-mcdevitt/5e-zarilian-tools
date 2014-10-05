@@ -2,7 +2,7 @@
 
 /* Directives */
 
-angular.module('av_adi.directives', []).
+angular.module('dnd5e.directives', []).
   directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);
