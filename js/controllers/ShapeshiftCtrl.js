@@ -53,14 +53,14 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 		{title: 'CR', field: 'cr'},
 		{title: 'AC', field: 'ac'},
 		{title: 'HP', field: 'hp'},
-		{title: 'Survivability', field: 'survivability', tooltip: "'Number of rounds this creature will survive against an enemy with a +6 to attacks and an average of 10 damage.'"},
+		{title: 'Survivability', field: 'survivability', tooltip: "'Number of rounds this creature will survive against an enemy with specified attack/damage.'"},
 		{title: 'Speed', field: 'speed'},
 		{title: 'Swim', field: 'swim'},
 		{title: 'Flight', field: 'flight'},
 		{title: 'Attacks', field: 'attacks', tooltip: "'Number of attacks this creature can make per round.'"},
 		{title: 'Modifier', field: 'attack'},
 		{title: 'DPH', field: 'damage', tooltip: "'Average damage creature does on a hit.'"},
-		{title: 'DPR', field: 'dpr', tooltip: "'Average damage per round against a target with 14 AC.'"}
+		{title: 'DPR', field: 'dpr', tooltip: "'Average damage per round against an enemy with specified AC.'"}
 	];
 
 	$scope.sizes = {
