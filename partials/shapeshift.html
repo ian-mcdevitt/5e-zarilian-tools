@@ -2,11 +2,13 @@
 	<div style="text-align: center; width: 260px; float: left; padding: 8px 10px 0px 0px">
 		<div class="shapeshift-input">
 			<span>Minimum CR:</span>
-			<input ng-model="min_cr">
+			<select ng-model="min_cr" ng-options="cr.value as cr.name for cr in cr_options">
+			</select>
 		</div>
 		<div class="shapeshift-input">
 			<span>Maximum CR:</span>
-			<input ng-model="max_cr">
+			<select ng-model="max_cr" ng-options="cr.value as cr.name for cr in cr_options">
+			</select>
 		</div>
 		<div class="shapeshift-input">
 			<span>Swim Speed:</span>
@@ -68,8 +70,8 @@
 		</div>
 		<div class="beast" ng-repeat="beast in (beasts | filter: filterBeasts | orderBy:evaluateBeast:sort_dir)">
 			<div>{{beast.name}}</div>
-			<div>{{beast.size}}</div>
-			<div>{{beast.cr}}</div>
+			<div>{{sizes[beast.size]}}</div>
+			<div>{{crs[beast.cr]}}</div>
 			<div>{{beast.ac}}</div>
 			<div>{{beast.hp}}</div>
 			<div>{{beast.survivability | number: 1}}</div>

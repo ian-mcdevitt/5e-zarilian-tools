@@ -5,7 +5,7 @@
 angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', ['$scope', '$sce', '$routeParams', 'beasts', function($scope, $sce, $routeParams, beasts) {
 	$scope.beasts = beasts;
 	$scope.min_cr = 0;
-	$scope.max_cr = 30;
+	$scope.max_cr = 6;
 	$scope.swim = '2';
 	$scope.flight = '2';
 	$scope.elemental = '2';
@@ -70,6 +70,23 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 		'2': 'Large',
 		'3': 'Huge'
 	};
+
+	$scope.crs = {
+		'0': '0',
+		'0.125': '1/8',
+		'0.25': '1/4',
+		'0.5': '1/2',
+	};
+	$scope.cr_options = [
+		{name: '0', value: 0},
+		{name: '1/8', value: 0.125},
+		{name: '1/4', value: 0.25},
+		{name: '1/2', value: 0.5},
+	];
+	for(var i = 1; i < 7; i++) {
+		$scope.crs[''+i] = ''+i;
+		$scope.cr_options.push({name: i, value: i});
+	}
 
 	$scope.filterBeasts = function(beast) {
 		if(
