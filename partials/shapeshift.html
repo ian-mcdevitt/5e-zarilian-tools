@@ -1,20 +1,86 @@
 <div ng-controller="shapeshiftCtrl">
-	<div class="no-print spell" style="text-align: center;">
-		<div style="float: left">
-			Minimum CR: <input ng-model="min_cr">{{min_cr}}<br>
-			Maximum CR: <input ng-model="max_cr"><br>
-			Can swim: <input type="radio" ng-model="swim" value="true">True<input type="radio" ng-model="swim" value="false">False<br>
-			Can fly: <input type="radio" ng-model="flight" value="true">True<input type="radio" ng-model="flight" value="false">False<br>
-			Size: <select ng-model="size">
+	<div style="text-align: center; width: 260px; float: left; padding: 8px 10px 0px 0px">
+		<div class="shapeshift-input">
+			<span>Minimum CR:</span>
+			<input ng-model="min_cr">
+		</div>
+		<div class="shapeshift-input">
+			<span>Maximum CR:</span>
+			<input ng-model="max_cr">
+		</div>
+		<div class="shapeshift-input">
+			<span>Swim Speed:</span>
+			<select ng-model="swim">
+				<option value="0">No Swimmers</option>
+				<option value="1">Only Swimmers</option>
+				<option value="2">All</option>
+			</select>
+		</div>
+		<div class="shapeshift-input">
+			<span>Flight Speed:</span>
+			<select ng-model="flight">
+				<option value="0">No Fliers</option>
+				<option value="1">Only Fliers</option>
+				<option value="2">All</option>
+			</select>
+		</div>
+		<div class="shapeshift-input">
+			<span>Elemental:</span>
+			<select ng-model="elemental">
+				<option value="0">No Elementals</option>
+				<option value="1">Only Elementals</option>
+				<option value="2">All</option>
+			</select>
+		</div>
+		<div class="shapeshift-input" style="height: 87px">
+			<span>Creature Size:</span>
+			<select multiple ng-model="size" style="height: 77px">
+				<option value="0.25">Tiny</option>
 				<option value="0.5">Small</option>
 				<option value="1">Medium</option>
 				<option value="2">Large</option>
 				<option value="3">Huge</option>
-				<option value="4">Gargantuan</option>
 			</select>
 		</div>
-		<div style="float: left" ng-repeat="beast in (beasts | filter: filterBeasts)">
-			{{beast}}
+		<h2>Enemy Stats</h2>
+		<div class="shapeshift-input">
+			<span>AC:</span>
+			<input ng-model="enemy.ac">
+		</div>
+		<div class="shapeshift-input">
+			<span>Attack Mod:</span>
+			<input ng-model="enemy.attack">
+		</div>
+		<div class="shapeshift-input">
+			<span>Damage/Hit:</span>
+			<input ng-model="enemy.dph">
+		</div>
+	</div>
+	<div style="width: calc(100%-300px); float: left; padding: 8px 0px 0px 10px; border-left: 2px solid black">
+		<div class="beast title">
+			<div ng-repeat="title in titles" ng-click="re_sort(title.field);" qtip data-at="bottom center" data-my="top center" data-content='{{title.tooltip}}'>
+                {{title.title}}
+                <span ng-show="{{title.tooltip}}" class="tooltip">?</span>
+				<span ng-show="sort == title.field && sort_dir == false">↑</span>
+				<span ng-show="sort == title.field && sort_dir == true">↓</span>
+			</div>
+			<hr>
+		</div>
+		<div class="beast" ng-repeat="beast in (beasts | filter: filterBeasts | orderBy:evaluateBeast:sort_dir)">
+			<div>{{beast.name}}</div>
+			<div>{{beast.size}}</div>
+			<div>{{beast.cr}}</div>
+			<div>{{beast.ac}}</div>
+			<div>{{beast.hp}}</div>
+			<div>{{beast.survivability | number: 1}}</div>
+			<div>{{beast.speed}}ft.</div>
+			<div>{{beast.swim ? beast.swim + 'ft.' : ''}}</div>
+			<div>{{beast.flight ? beast.flight + 'ft.' : ''}}</div>
+			<div>{{beast.attacks}}</div>
+			<div>+{{beast.attack}}</div>
+			<div>{{beast.damage}}</div>
+			<div>{{beast.dpr | number:1}}</div>
+			<hr>
 		</div>
 	</div>
 </div>
