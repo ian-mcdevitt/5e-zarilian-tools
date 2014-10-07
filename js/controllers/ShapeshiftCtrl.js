@@ -26,10 +26,10 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 	};
 
 	$scope.dpr_calc = function(beast) {
-		return Math.min(((beast.attack + 20 - $scope.enemy.ac) / 20), 0.95) * beast.damage * beast.attacks;
+		return Math.max(Math.min(((beast.attack + 20 - $scope.enemy.ac) / 20), 0.95), 0.05) * beast.damage * beast.attacks;
 	};
 	$scope.survivability_calc = function(beast) {
-		return beast.hp / (Math.min(((20 + $scope.enemy.attack - beast.ac) / 20), 0.95) * $scope.enemy.dph);
+		return beast.hp / (Math.max(Math.min(((20 + $scope.enemy.attack - beast.ac) / 20), 0.95), 0.05) * $scope.enemy.dph);
 	};
 
 	$scope.beasts.forEach(function(beast) {
