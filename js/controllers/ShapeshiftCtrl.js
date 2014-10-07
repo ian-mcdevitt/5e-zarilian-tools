@@ -79,6 +79,8 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 			beast.swim === 0 && $scope.swim == '1' ||
 			beast.flight > 0 && $scope.flight == '0' ||
 			beast.flight === 0 && $scope.flight == '1' ||
+			beast.name.indexOf('Elemental') !== -1 && $scope.elemental == '0' ||
+			beast.name.indexOf('Elemental') === -1 && $scope.elemental == '1' ||
 			$scope.size.indexOf(''+beast.size) === -1 ||
 			beast.name.indexOf('Elemental') !== -1 && $scope.elemental === false
 		) { return false; }
