@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', ['$scope', '$sce', '$routeParams', 'beasts', function($scope, $sce, $routeParams, beasts) {
+angular.module('dnd5e.controllers.shapeshift', ['ngSanitize']).controller('shapeshiftCtrl', ['$scope', '$sce', '$routeParams', 'beasts', function($scope, $sce, $routeParams, beasts) {
 	$scope.beasts = beasts;
 	$scope.min_cr = 0;
 	$scope.max_cr = 6;
@@ -14,6 +14,9 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 	$scope.enemy.ac = 14;
 	$scope.enemy.attack = 6;
 	$scope.enemy.dph = 10;
+
+	$scope.filters = true;
+	$scope.selected_creature = null;
 
 	$scope.sort = 'name';
 	$scope.sort_dir = false;
@@ -112,4 +115,27 @@ angular.module('dnd5e.controllers.shapeshift', []).controller('shapeshiftCtrl', 
 		$scope.sort_dir = ( $scope.sort == field ? !$scope.sort_dir : true );
 		$scope.sort = field;
 	};
+
+	$scope.select_creature = function(index) {
+		$scope.selected_creature = index;
+	};
+	$scope.deselect_creature = function(index) {
+		$scope.selected_creature = null;
+	};
+	$scope.abilityText = function(score) {
+    	return [String(score),
+            ' (',
+            $scope.formattedModifier($scope.abilityModifier(score)),
+            ')'].join('');
+	};
+	$scope.abilityModifier = function(score) {
+		return Math.floor((score - 10)/2);
+	};
+    $scope.formattedModifier = function(modifier) {
+	    if (modifier >= 0) {
+	        return '+' + modifier;
+	    } else {
+	    	return '–' + Math.abs(modifier);	
+	    }
+  	};
 }]);

@@ -8,6 +8,7 @@
 body {
 	overflow-y: scroll;
     margin-top: 0px;
+    margin-left: 0px;
 }
 body * {
     font-family: 'OpenSans', sans-serif;
@@ -131,37 +132,41 @@ pre {
     border-top: 1px solid black;
     height: 27px;
 }
+.beast.odd{
+    background-color: #DDD;
+}
 .beast.title {
     border-top-width: 0px;
     border-bottom: 1px solid black;
     font-weight: bold;
 }
-.beast.title > div {
+.beast.title div.line > div {
     height: 17px;
     width: 59px;
     border-left: 1px solid black;
     cursor: pointer;
 }
-.beast.title > div:first-child {
+.beast.title div.line > div:first-child {
     border-left: 0px;
 }
-.beast.title > div > span {
+.beast.title div.line > div > span {
     float: right;
 }
-.beast > div {
+.beast div.line > div {
     width: 60px;
     padding: 5px;
     float: left;
     text-align: center;
 }
-.beast > div:first-child {
+.beast div.line > div:first-child {
     width: 130px;
     text-align: left;
+    padding-left: 10px;
 }
-.beast > div:nth-child(6) {
+.beast div.line > div:nth-child(6) {
     width: 90px;
 }
-.beast > div:nth-child(10) {
+.beast div.line > div:nth-child(10) {
     width: 90px;
 }
 hr {
@@ -198,4 +203,27 @@ span.tooltip {
 }
 div[qtip] {
     cursor: help;
+}
+#filter-toggle {
+    height: 100vh;
+    width: 10px;
+    background-color: #CCC;
+    float: left;
+    text-align: center;
+    line-height: 100vh;
+    cursor: pointer;
+    border: 1px solid #999;
+    border-width: 0px 1px 0px 1px;
+}
+stat-block {
+    margin-left: 8px;
+}
+table {
+    width: 100%;
+    border: 0px;
+    border-collapse: collapse;
+}
+th, td {
+    width: 50px;
+    text-align: center;
 }
