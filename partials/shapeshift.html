@@ -152,13 +152,18 @@
 				        <h4>Condition Immunities</h4>
 				        <p>{{beast.cond_immune.join('; ')}}</p>
 				    </property-line>
+				    <property-line ng-show="beast.skills.length > 0">
+				        <h4>Skills</h4>
+				        <p>{{beast.skills.join(', ')}}</p>
+				    </property-line>
 				    <property-line>
 				        <h4>Senses</h4>
-				        <p>{{beast.senses}}</p>
+				        <p>{{beast.senses.concat('passive Perception ' + (10 + beast.perception_prof + abilityModifier(beast.abilities[4]))).join(', ')}}</p>
 				    </property-line>
-				    <property-line ng-show="beast.languages.length > 0">
+				    <property-line>
 				        <h4>Languages</h4>
-				        <p>{{beast.languages.join(', ')}}</p>
+				        <p ng-show="beast.languages.length > 0">{{beast.languages.join(', ')}}</p>
+				        <p ng-show="beast.languages.length === 0">–</p>
 				    </property-line>
 				    <property-line>
 				        <h4>Challenge</h4>
